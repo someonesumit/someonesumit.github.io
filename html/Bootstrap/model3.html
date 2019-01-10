@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style>
+  /** .addressTitle is used to control the width
+  
+  https://www.jquery-az.com/how-to-increasedecrease-bootstrap-modal-width-and-height/
+  **/
+
+ 
+
+    .cModel:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -4px;
+    }
+
+    .hrC{      
+        width: 80%;
+        margin-top:1px;
+        margin-bottom: 1px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .mBlock
+   {
+        padding: 5px 0 0 0;
+        background: #ffffff;
+        color: #fff;
+        padding-bottom: 9px;
+    }
+
+    .matrixBlock {
+        background: #007EE5;
+        margin-top: -5px;
+        color: #1b1818;
+        text-shadow: none;
+        font-size: 12px;
+        text-align: center;
+     /**   box-shadow: 3px 6px 6px 1px #333;  **/
+    }
+
+    .addressTitle {
+        padding: 6px 20px;
+        display: inline-block;
+        margin-top: -5px;
+        color: #F57921;
+        text-shadow: none;
+        font-size: 16px;
+    }
+
+  </style>
+
+  <script>
+  
+$(document).ready(function(){
+
+    $("#b1").click(function(){
+       console.log("bt1 click");
+
+
+        var matrix = "1,2,3,4,5,6";
+            var perHrRateMatrix = "1.0,2.0,3.0,4.0,5.0,6.0";
+
+            $('#matrixModel').empty();
+         //   document.getElementById("dialog-1").style.minHeight="0";
+          
+            var matrixB = '<div class="matrixBlock"><div class="mBlock" style="align-content:center;"> <span class="addressTitle"> &nbsp; &nbsp; Hours &nbsp; &nbsp; &nbsp; |&nbsp; &nbsp; &nbsp;  Price &nbsp; &nbsp;</span> '
+
+            var hrMatrix = matrix.split(',');
+            var perHrRate = perHrRateMatrix.split(',');
+
+
+            var i = 0;
+            for (i = 0; i < hrMatrix.length; i++) {
+                if(i==0){
+                    matrixB +=  '<hr class="hrC"/><span class="addressTitle">First - ' + hrMatrix[i] + ' Hr | $' + perHrRate[i] + ' Per Hour</span>'
+                }else if( hrMatrix[i]==0){
+                    matrixB +=  '<hr class="hrC"/><span class="addressTitle">Remaining Hrs | $' + perHrRate[i] + ' Per Hour</span>'
+                }else
+                {
+                    matrixB +=  '<hr class="hrC"/><span class="addressTitle">Next - ' + hrMatrix[i] + ' Hr | $' + perHrRate[i] + ' Per Hour</span>'
+                }
+            }
+
+            matrixB += '</div>';
+            
+
+            $('#matrixModel').prepend(matrixB)
+
+         
+    });
+
+});
+  
+  </script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Modal Example</h2>
+  <!-- Trigger the modal with a button
+  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+      <i class="fa  fa-home"></i></button> -->
+<div class="" id="b1" data-toggle="modal" attr="test data" data-target="#myModal">
+            <i class="fa fa-info-circle" style="font-size:25px;color:#007EE5;"></i></div>
+
+  <!-- Modal -->
+  <div class="modal fade cModel" id="myModal" role="dialog" style="text-align: center;
+  padding: 0!important;top:-45%">
+    <div class="modal-dialog" style="display: inline-block;
+    text-align: left;top:20%;min-width: 250px;max-width: 30%;
+    ">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="
+        background: #007EE5 !important;
+        color: #fff !important;
+        text-align: center;
+        font-size: 27px !important;
+        padding: 5px;
+        ">
+        <div type="button" class="close" data-dismiss="modal" style="color: #fff;opacity: 1;">&times;</div>
+          
+          <h4 class="modal-title" style="margin: 4px;">Rate Matrix</h4>
+        </div>
+        <div class="modal-body" style="align-content:center;padding:2px;">
+          <div id="matrixModel">Some text in the modal.</div>
+            
+
+        </div>
+
+        <!--
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        -->
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+</body>
+</html>
