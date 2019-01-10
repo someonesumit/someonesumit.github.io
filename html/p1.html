@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        .parent {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .parent>.child {
+            display: table-row;
+            vertical-align: middle;
+            padding: 10px;
+        }
+
+        .parent>.child>.cc {
+            display: table-cell;
+            vertical-align: middle;
+            padding: 10px;
+        }
+
+        hr {
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+}
+    </style>
+
+</head>
+
+<body>
+    <section class="parent">
+        <div class="child">
+            <div class="cc">A1ssssssss</div>
+            <div class="cc">|</div>
+            <div class="cc">B1</div>
+        </div>
+        <div style="height: 0px">
+            <hr size="0" />
+        </div>
+        <div class="child">
+            <div class="cc">A2</div>
+            <div class="cc">|</div>
+            <div class="cc">B2</div>
+        </div>
+        <div style="height: 0px">
+            <hr size="0" />
+        </div>
+        <div class="child">
+            <div class="cc">A3</div>
+            <div class="cc">|</div>
+            <div class="cc">B3</div>
+        </div>
+        <hr size="0" />
+       
+
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style>
+  /** .addressTitle is used to control the width
+  
+  https://www.jquery-az.com/how-to-increasedecrease-bootstrap-modal-width-and-height/
+  **/
+
+  .modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+.modal-title{
+
+    margin: 4px;
+}
+
+
+
+    .orangePipeline {
+        font-size: 18px;
+        font-weight: 900;
+        color: #696969;
+    }
+
+
+    .deleteButtonAvailability,
+    .deleteButtonAvailability:hover,
+    .deleteButtonAvailability:active
+    {
+
+        color: #fff;
+        background-color: #F57921;
+        border-color: #F57921;
+    }
+
+    .confirmButton {
+        color: #fff;
+        background-color: #007EE5;
+        border-color: #007EE5;
+    }
+
+    .menuTitle{
+        font-weight: bold;
+        color:#007EE5;
+    }
+
+    .disText{
+        font-weight: bold;
+        color:#007EE5;
+        font-size: 16px;
+    }
+
+    .totalFare{
+        margin-right: 5px;
+        display: inline-block;
+        width: 24%;
+        text-align: right;
+        font-weight:800;
+        font-size: 18px;
+        color:#007EE5;
+    }
+
+    .rejectColor {
+        background-color: #ffffff;
+        border-color: #ffffff;
+        color: #F57921
+    }
+
+    .plateNumberhash {
+        font-size: 13px;
+    }
+
+    .plateNumberBlock {
+        font-size: 13px;
+    }
+
+    #divautocomplete li {
+        padding: 10px 10px;
+        list-style: none;
+    }
+
+    .tableCarHeader {
+        font-size: 13px;
+        font-weight: 600;
+        color: #000;
+        white-space: nowrap;
+    }
+
+    .percentageCommissionBlock {
+        margin-left: 0px;
+        font-size: 13px;
+    }
+
+    #updateContactModal input {
+        border: none;
+        border-bottom: 2px solid #000;
+        width: 95%;
+        margin-top: 15px;
+        font-size: 28px;
+    }
+
+    #divautocomplete {
+        z-index: 11111111111111111;
+        width: 250px;
+        margin: 10px 0;
+        padding: 10px 0;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+        -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+        -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    }
+
+    tr {
+        background: #fff !important;
+    }
+
+    .styled-select.slate {
+        background: url(images/icon.jpg) no-repeat right center;
+        height: 34px;
+        width: 240px;
+        margin: 20px;
+    }
+
+    .styled-select.slate select {
+        border: 1px solid #ccc !important;
+        font-size: 16px !important;
+        height: 34px !important;
+        width: 207px !important;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+    .pickBlock,
+    .WaitBlock,
+    .dropBlock {
+        padding: 5px 0 0 0;
+        border-bottom: 2px dashed #F57921;
+        background: #ffffff;
+        color: #fff;
+        padding-bottom: 9px;
+    }
+
+    .dropBlock {
+        border-bottom: none;
+    }
+
+    .plannedText {
+        opacity: 0.2;
+        font-size: 74px;
+        position: absolute;
+        top: 104px;
+        left: -18px;
+        transform: rotate(320deg);
+        z-index: 1;
+        color: #000;
+        font-weight: 800;
+    }
+
+    .newaddress {
+        display: block;
+        font-size: 14px;
+        padding: 5px;
+        color: #007EE5;
+        background: #ffffff;
+        font-weight: 600;
+    }
+
+    .extendButton {
+        margin-left: 2px;
+    }
+
+    .durationsWaitBlock {
+        display: block;
+        text-align: center;
+        font-size: 23px;
+        font-weight: 600;
+        color: #007EE5;
+        background: #ffffff;
+    }
+
+    .addressTitle {
+        padding: 6px 20px;
+        display: inline-block;
+        margin-top: -5px;
+        color: #F57921;
+        text-shadow: none;
+        font-size: 16px;
+    }
+
+    .addressBlock {
+        border: 2px solid #007EE5;
+        background: #007EE5;
+        padding: 6px 9px;
+        display: block;
+        margin-top: -5px;
+        color: #1b1818;
+        text-shadow: none;
+        font-size: 16px;
+        text-align: center;
+        /* box-shadow: 3px 6px 6px 1px #333; */
+    }
+
+    .buttonsBlock,
+    .p2pbuttonsBlock {
+        padding: 6px;
+        background: #9da4b7;
+        color: #000;
+    }
+
+    .commentNotes {
+        font-size: 18px;
+        font-weight: 600;
+        color: #F57921
+    }
+
+    .NewCommentsBlock {
+        width: 94%;
+        color: #000;
+        background: #fff;
+    }
+
+    .buttonsBlock:nth-child(n+2),
+    .p2pbuttonsBlock:nth-child(n+2) {
+        margin-top: -6px;
+    }
+
+    .actButton {
+        border-top: none;
+        background: #007EE5;
+        color: #fff;
+        border-radius: 0;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    tr:nth-child(4n+1) {
+        background: #ccc !important;
+    }
+
+    tr:nth-child(4n+2) {
+        background: #ccc !important;
+    }
+
+    .datepickers-container {
+        z-index: 104444;
+    }
+
+    .modalButton {
+        padding: 8px 10px;
+        width: 100%;
+        font-size: 29px;
+    }
+
+    .modalButton1 {
+        padding: 15px 10px;
+        width: 92%;
+        font-size: 29px;
+        margin-bottom: 10px;
+    }
+
+    #extendModal input,
+    #extendModal textarea {
+        border: none;
+        resize: vertical;
+        font-size: 16px;
+        padding: 6px 10px;
+        color: black !important;
+    }
+
+    #driverModal input,
+    #driverModal textarea {
+        border: none;
+        resize: vertical;
+        font-size: 16px;
+        padding: 6px 10px;
+        margin-bottom: 5px;
+    }
+
+    .inputField {
+        margin-bottom: 18px;
+        border-bottom: 2px solid #ccc;
+        width: 95%
+    }
+
+    #extendModal .fa {
+        color: rgb(34, 186, 30);
+        font-size: 35px !important;
+    }
+
+    .labelButton {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    td div {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .incomingTripTitle {
+        font-size: 19px !important;
+        text-align: left;
+        margin-left: 9px;
+        color: rgb(17, 152, 215);
+        margin-top: -15px;
+
+    }
+
+     .customerDetails {
+        font-size: 14px !important;
+        text-align: left;
+        margin-left: 0px;
+        color:#007EE5;
+        margin-top: -7px;
+        text-align: center;
+        font: normal normal normal 18px/1.2 "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+        font-weight: 300;
+
+    }
+
+    .BookingMainType {
+        font-size: 14px !important;
+        text-align: left;
+        margin-left: 0px;
+        color:#007EE5;
+        margin-top: -7px;
+        text-align: center;
+        font: normal normal normal 18px/1.2 "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+        font-weight: 500;
+    }
+
+    .PhoneNumber {
+        font-size: 14px !important;
+        text-align: left;
+        margin-left: 0px;
+        color: #007EE5;
+        margin-top: -15px;
+        text-align: center;
+        text-decoration-line: underline;
+        font-weight: 500;
+
+    }
+
+    .firstHalf {
+        display: inline-block;
+        width: 45%;
+        font-weight: 600;
+        margin-bottom: 10px;
+        margin-left: -5px;
+    }
+
+    .firstHalf1 {
+        display: inline-block;
+        width: 35%;
+        font-weight: 600;
+        color:#007EE5;
+    }
+
+    .secondHalf {
+        display: inline-block;
+        width: 55%;
+        color:#007EE5;
+    }
+
+    .subData1 {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-flow: row wrap;
+        -webkit-flex-flow: row wrap;
+        justify-content: space-around;
+        -webkit-justify-content: space-around;
+        flex-wrap: nowrap;
+        -webkit-flex-wrap: nowrap;
+    }
+
+    .panel-body {
+        position: relative;
+    }
+
+    .secondHalf input {
+        border: none;
+        border-bottom: 1px solid #000;
+        border-radius: none;
+        width: 75%
+    }
+
+    .glassBar {
+        font-size: 11px !important;
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: -3px;
+        padding: 1px 1px;
+        background: rgb(34, 186, 30) none repeat scroll 0% 0%;
+        border-radius: 19px;
+        color: rgb(255, 255, 255);
+        margin-right: 15px;
+        border: 3px solid rgb(34, 186, 30);
+        margin-left: 35px !important;
+        position: relative;
+        top: -3px;
+    }
+
+    .menuFloat {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .vehicleStatusTable.table>tbody>tr {
+        background: #96bee0 !important;
+    }
+
+    .vehicleStatusTable.table>tbody>tr:nth-child(2n+1) td {
+        text-align: center !important;
+        height: 28px;
+        line-height: 0.5;
+    }
+
+    .vehicleStatusTable.table>tbody>tr:nth-child(2n+2) {
+        border-bottom: 2px solid #000;
+        background: #96bee0 !important;
+    }
+
+    .vehicleStatusTable.table>tbody>tr:nth-child(2n+2) td:nth-child(2n+1) {
+        border-right: 1px solid #9d7b1a !important;
+    }
+
+    .vehicleStatusTable.table>tbody>tr:nth-child(4n+1) {
+        background: #fff !important;
+    }
+
+    .vehicleStatusTable.table>tbody>tr:nth-child(4n+2) {
+        background: #fff !important;
+        border-bottom: 2px solid #000;
+    }
+
+    .vehicleStatusTable.table tbody tr:nth-of-type(odd) {
+        border-bottom: 2px solid #000 !important;
+    }
+
+    .vehicleStatusTable.table>tbody>tr:nth-child(4n+1) .orangePipeline {
+        color: #696969;
+    }
+
+    .vehicleStatusTable.table>thead>tr>th,
+    .vehicleStatusTable.table>tbody>tr>th,
+    .vehicleStatusTable.table>tfoot>tr>th,
+    .vehicleStatusTable.table>thead>tr>td,
+    .vehicleStatusTable.table>tbody>tr>td,
+    .vehicleStatusTable.table>tfoot>tr>td {
+        border-left: none !important;
+    }
+
+    .subMenuFloat {
+        width: 23%;
+        display: inline-block;
+        text-align: center;
+        position: relative
+    }
+
+    .circleButton {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #fff;
+        border: 3px solid #007EE5;
+        display: inline-block;
+    }
+
+    .circleButton .fa {
+        color: #007EE5;
+        padding: 30% 10%;
+        font-weight: 900;
+        font-size: 20px!important;
+    }
+
+    .circleButtonSelected {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #007EE5;
+        border: 3px solid #007EE5;
+        display: inline-block;
+    }
+
+    .circleButtonSelected .fa {
+        color: #fff;
+        padding: 30% 10%;
+        font-weight: 900;
+        font-size: 20px!important;
+    }
+
+    .p2pText {
+        color: #040404;
+        position: relative;
+        top: -17px;
+        left: 20px;
+        font-weight: bolder;
+    }
+
+    #avTable1 th{
+        background-color: #F57921 !important;
+    }
+
+    .ui-widget-header,.ui-state-default, ui-button {
+        background:gray;
+        border: 1px solid #b9cd6d;
+        color: white;
+        font-weight: bold;    
+    }
+
+    .hrC{
+      
+        width: 80%;
+        margin-top:1px;
+        margin-bottom: 1px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .matrixBlock {
+        
+        background: #007EE5;
+  
+        margin-top: -5px;
+        color: #1b1818;
+        text-shadow: none;
+        font-size: 12px;
+        text-align: center;
+        /* box-shadow: 3px 6px 6px 1px #333; */
+    }
+
+    .modal-body{
+        padding: 2px;
+    }
+
+    
+    .mBlock
+   {
+        padding: 5px 0 0 0;
+        
+        background: #ffffff;
+        color: #fff;
+        padding-bottom: 9px;
+    }
+         
+    .ui-dialog .ui-dialog-content{
+        padding:0%;
+       
+    }
+
+    .ui-dialog .ui-dialog-title {
+        text-align: center;
+    }
+
+  </style>
+
+  <script>
+  
+$(document).ready(function(){
+
+    $("#b1").click(function(){
+       console.log("bt1 click");
+
+
+        var matrix = "1,2,3,4,5,6";
+            var perHrRateMatrix = "1.0,2.0,3.0,4.0,5.0,6.0";
+
+            $('#dialog-1').empty();
+         //   document.getElementById("dialog-1").style.minHeight="0";
+          
+            var matrixB = '<div class="matrixBlock"><div class="mBlock" style="align-content: center">       <span class="addressTitle"> &nbsp; &nbsp; Hours &nbsp; &nbsp; &nbsp; |&nbsp; &nbsp; &nbsp;  Price &nbsp; &nbsp;</span> '
+
+            var hrMatrix = matrix.split(',');
+            var perHrRate = perHrRateMatrix.split(',');
+
+
+            var i = 0;
+            for (i = 0; i < hrMatrix.length; i++) {
+                if(i==0){
+                    matrixB +=  '<hr class="hrC"/><span class="addressTitle">First - ' + hrMatrix[i] + ' Hr | $' + perHrRate[i] + ' Per Hour</span>'
+                }else if( hrMatrix[i]==0){
+                    matrixB +=  '<hr class="hrC"/><span class="addressTitle">Remaining Hrs | $' + perHrRate[i] + ' Per Hour</span>'
+                }else
+                {
+                    matrixB +=  '<hr class="hrC"/><span class="addressTitle">Next - ' + hrMatrix[i] + ' Hr | $' + perHrRate[i] + ' Per Hour</span>'
+                }
+            }
+
+            matrixB += '</div>';
+            
+
+            $('#dialog-1').prepend(matrixB)
+
+         
+    });
+
+});
+  
+  </script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Modal Example</h2>
+  <!-- Trigger the modal with a button
+  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+      <i class="fa  fa-home"></i></button> -->
+
+    <div class="btn btn-info" id="b1" data-toggle="modal" attr="test data" data-target="#myModal">
+            <i class="fa  fa-home"></i></div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="
+        background: #F57921 !important;
+        color: #fff !important;
+        text-align: center;
+        font-size: 27px !important;
+        padding: 5px;
+        ">
+        <button type="button" class="close" data-dismiss="modal" style="color: #fff">&times;</button>
+          
+          <h4 class="modal-title">Rate Matrix</h4>
+        </div>
+        <div class="modal-body" style="align-content: center">
+          <div id="dialog-1">Some text in the modal.</div>
+            
+
+        </div>
+
+        <!--
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        -->
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  <script>
+
+$(document).ready(function(){
+
+    
+
+
+      $('#Updateh2').click(function(){
+          
+   //   $('#demo').text("New Content");
+        
+      var cString = $('#bName').text();
+
+      if(cString == 'Simple collapsible'){
+        $('#bName').text("Closed");
+      }else{
+        $('#bName').text("Simple collapsible");
+      }
+
+
+      console.log(cString);
+      
+      console.log("test message");
+
+
+
+      
+      //  $(this).find('.subVehicleLinksContainer').toggle();
+
+     /** if($(this).text().charAt(0)=="+"){
+
+         var newString= $(this).text().replace("+","-")
+         $(this).text(newString)
+      }
+      else{
+        var newString=$(this).text().replace("-","+")
+         $(this).text(newString)
+      }
+      **/
+});
+
+});
+
+
+  
+  </script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Simple Collapsible</h2>
+  <button type="button" class="btn btn-info" id="bName" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
+  
+ 
+  <div id="demo" class="collapse in">
+    Demo to show how collapse feature will work with bootstrap.
+   
+   
+  </div>
+  <div class="clearfix"  id="Updateh2" > <span class="newLine">1 2  4 </span></div>
+</div>
+    
+</body>
+</html>
